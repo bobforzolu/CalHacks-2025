@@ -57,7 +57,8 @@ public class Enemy : MonoBehaviour,IHealth
   {
     idleTime = idleDuration + Time.time;
     enemyState = EnemyState.ishit;
-    attacksequatnce?.Kill();
+    attacksequatnce?.Pause();
+    moveTweener?.Kill();
     moveTweener = transform.DOMove(transform.position + (Vector3.right * force), 0.5f).SetEase(Ease.OutFlash);
   }
 
@@ -75,7 +76,7 @@ public class Enemy : MonoBehaviour,IHealth
   public void SetMovement()
   {
     enemyState = EnemyState.move;
-    moveTweener = transform.DOMoveX(tartget.transform.position.x, 1.5f).SetSpeedBased().SetEase(Ease.Linear);
+    moveTweener = transform.DOMoveX(tartget.transform.position.x, MovementSpeed).SetSpeedBased().SetEase(Ease.Linear);
 
   }
 
@@ -157,6 +158,8 @@ public class Enemy : MonoBehaviour,IHealth
     if (Health <= 0)
     {
       OnDeath?.Invoke(this);
+      moveTweener?.Kill();
+      attacksequatnce?.Kill();
       Destroy(gameObject);
     }
      

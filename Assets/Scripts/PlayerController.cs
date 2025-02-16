@@ -4,7 +4,7 @@ using System.Components;
 using DG.Tweening;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour,IHealth
 {
     public ActivePlayer activePlayer;
     public InputController inputController;
@@ -135,6 +135,16 @@ public class PlayerController : MonoBehaviour
         coupleStateMachine.ControlEnabled(true);
 
         
+    }
+
+    public void TakeDamege()
+    {
+        movementComponent.rigidbody.AddForce(Vector2.left * 4f, ForceMode.Impulse);
+    }
+
+    public void HealHealth()
+    {
+        throw new NotImplementedException();
     }
 }
 

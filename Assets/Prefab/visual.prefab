@@ -268,7 +268,7 @@ MonoBehaviour:
   AttackRange: 3.5
   Health: 3
   AttackCoolDown: 0
-  MovementSpeed: 0
+  MovementSpeed: 2
   enemyState: 0
   layerMask:
     serializedVersion: 2
@@ -281,6 +281,7 @@ MonoBehaviour:
   idleTime: 0
   isMoving: 0
   tartget: {fileID: 0}
+  testing: 0
   boxCollider: {fileID: 2167031912242151565}
 --- !u!114 &5802609677303098592
 MonoBehaviour:
