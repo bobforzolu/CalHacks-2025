@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour,IHealth
 
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         inputController.Move -= InputControllerOnMove;
         inputController.Attack -= InputControllerOnAttack;
