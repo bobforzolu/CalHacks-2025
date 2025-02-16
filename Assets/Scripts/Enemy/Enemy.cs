@@ -71,14 +71,15 @@ public virtual void Spawn()
  
   private void Update()
   {
-    CheckLeftRightRaycast();
     
     
     switch (enemyState)
     {
       case EnemyState.Idle:
+        CheckLeftRightRaycast();
         break;
       case EnemyState.move:
+        CheckLeftRightRaycast();
         break;
       case EnemyState.attack:
         break;
