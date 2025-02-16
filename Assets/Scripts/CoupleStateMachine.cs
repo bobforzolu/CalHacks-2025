@@ -35,6 +35,19 @@ public class CoupleStateMachine : MonoBehaviour
             GetComponentInParent<PlayerController>().inputController.Move += InputControllerOnMove;
         }
 
+        private void OnDisable()
+        {
+           
+        }
+
+        private void OnDestroy()
+        {
+            animationEvent.OnAniamtion -= AnimationEventOnOnAniamtion;
+
+            GetComponentInParent<PlayerController>().OnActivePlayerChanged -= OnOnActivePlayerChanged;
+            GetComponentInParent<PlayerController>().inputController.Move -= InputControllerOnMove;
+        }
+
         public void Attack()
         {
          

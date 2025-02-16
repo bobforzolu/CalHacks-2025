@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3450719893149121467}
   - component: {fileID: 3685380074436376645}
   - component: {fileID: 7140836616385277418}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   animationEvent: {fileID: 364027606745696214}
   PlayerId: 1
   InControl: 0
+  attackMovement: 0
   movement: {x: 0, y: 0}
 --- !u!114 &2149924432238401375
 MonoBehaviour:

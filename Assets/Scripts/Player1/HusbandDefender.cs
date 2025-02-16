@@ -25,6 +25,7 @@ public class HusbandDefender : MonoBehaviour
                    bullet.Parry(movementComponent);
 
                 }
+               
             }
         
     }

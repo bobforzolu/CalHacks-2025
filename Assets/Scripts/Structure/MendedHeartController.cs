@@ -19,6 +19,14 @@ public class MendedHeartController : MonoBehaviour
       }
    }
 
+   private void OnDisable()
+   {
+      foreach (StructreController structreController in structures.GetComponentsInChildren<StructreController>())
+      {
+         structreController.OnStructureBuilt -= OnStuctureBuilted;
+      }
+   }
+
    public void OnStuctureBuilted( StructreController structreController )
    {
       if (!structre.Contains(structreController))

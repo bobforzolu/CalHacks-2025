@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour,IHealth
     public MovementComponent movementComponent;
     
     private Vector2 movement;
+    public bool IsHit;
 
 
     public float switchSpeed;
@@ -39,6 +40,13 @@ public class PlayerController : MonoBehaviour,IHealth
             stateMachine.Initalize();
         }
 
+    }
+
+    private void OnDisable()
+    {
+        inputController.Move -= InputControllerOnMove;
+        inputController.Attack -= InputControllerOnAttack;
+        inputController.Utility -= InputControllerOnUtility;
     }
 
     private void InputControllerOnUtility(bool arg0)
@@ -73,6 +81,8 @@ public class PlayerController : MonoBehaviour,IHealth
     // Update is called once per frame
     void Update()
     {
+        if(IsHit)
+            return;
         movementComponent.SetVelocity(4, movement);
         movementComponent.LogicUpdate();
        
@@ -139,7 +149,13 @@ public class PlayerController : MonoBehaviour,IHealth
 
     public void TakeDamege()
     {
-        movementComponent.rigidbody.AddForce(Vector2.left * 4f, ForceMode.Impulse);
+        if(IsHit == true)
+            return;
+        
+        movementComponent.rigidbody.DOMoveX(transform.position.x - 10.5f, 0.2f).SetEase(Ease.Flash).OnComplete(() =>
+        {
+            IsHit = false;
+        }).OnStart(()=>IsHit = true);
     }
 
     public void HealHealth()

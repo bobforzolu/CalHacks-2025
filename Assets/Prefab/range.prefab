@@ -55,20 +55,20 @@ MonoBehaviour:
   AttackRange: 10
   Health: 2
   AttackCoolDown: 0
-  MovementSpeed: 0
+  MovementSpeed: 2
   enemyState: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   textUi: {fileID: 1553811084424120548}
-  TimeBetweenAttacks: 3
+  TimeBetweenAttacks: 4
   attacktime: 0
   isAttacking: 0
   idleDuration: 2
   idleTime: 0
   isMoving: 0
   tartget: {fileID: 0}
-  testing: 1
+  testing: 0
   Projectile: {fileID: 2608648070923876816, guid: 831a5727e943d4d498dcc09a54138113, type: 3}
 --- !u!23 &1511760544851524588
 MeshRenderer:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -168,9 +168,9 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 6
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

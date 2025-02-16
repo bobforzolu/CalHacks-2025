@@ -34,15 +34,15 @@ public class BulletController : MonoBehaviour
                 if (targetPlayer)
                 {
                         if (!other.gameObject.CompareTag("Player")) return;
-                        if (!TryGetComponent(out IHealth health)) return;
-                        health.TakeDamege();
+                        if (!other.TryGetComponent(out IHealth health)) return;
+                         health.TakeDamege();
                         Destroy(gameObject);
                 }
                 else if(!targetPlayer)
                 {
                         if (!other.gameObject.CompareTag("Enemy")) return;
-                        if (!TryGetComponent(out IHealth health)) return;
-                        health.TakeDamege();
+                        if (!other.TryGetComponent(out IHealth health)) return;
+                                health.TakeDamege();
                         Destroy(gameObject);
 
                 }

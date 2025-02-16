@@ -2,6 +2,7 @@ using System;
 using System.Components;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StructreController : MonoBehaviour, IHealth
 {
@@ -22,12 +23,31 @@ public class StructreController : MonoBehaviour, IHealth
     public event Action<float> OnRepairChanged;
 
 
+    public GameObject BadEndingUI;
+    public GameObject GoodEndingUI;
+
+
     private void Start()
     {
         currentHeal = maxHeal;
     }
 
- 
+    private void OnEnable()
+    {
+        OnStructureBuilt += OnOnStructureBuilt;
+    }
+
+    private void OnDisable()
+    {
+        OnStructureBuilt -= OnOnStructureBuilt;
+
+    }
+
+    private void OnOnStructureBuilt(StructreController obj)
+    {
+        showGoodENding();
+    }
+
 
     public void StartRepair()
     {
@@ -65,6 +85,8 @@ public class StructreController : MonoBehaviour, IHealth
 
         if (currentHeal <= 0)
         {
+            repairTween.Kill();
+            BadENding();
             transform.gameObject.SetActive(false);
         }
     }
@@ -72,6 +94,21 @@ public class StructreController : MonoBehaviour, IHealth
     public void HealHealth()
     {
         throw new NotImplementedException();
+    }
+
+    public void showGoodENding()
+    {
+        GoodEndingUI.SetActive(true);
+    }
+
+    public void BadENding()
+    {
+        BadEndingUI.SetActive(true);
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

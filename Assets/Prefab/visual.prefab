@@ -268,13 +268,13 @@ MonoBehaviour:
   AttackRange: 3.5
   Health: 3
   AttackCoolDown: 0
-  MovementSpeed: 2
+  MovementSpeed: 4
   enemyState: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   textUi: {fileID: 7413844302566418365}
-  TimeBetweenAttacks: 4.05
+  TimeBetweenAttacks: 2.5
   attacktime: 0
   isAttacking: 0
   idleDuration: 1

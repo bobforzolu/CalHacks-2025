@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
     {
         if (enemies[CurrentWave].enemycount > 0 && spawnedEnemies.Count < enemies[CurrentWave].maxEnemies)
         {
-          GameObject enemy =  Instantiate(enemies[CurrentWave].enemys[0],transform.position, Quaternion.identity);
+          GameObject enemy =  Instantiate(enemies[CurrentWave].enemys[Random.Range(0, 2)],transform.position, Quaternion.identity);
           enemy.GetComponent<Enemy>().Iniatalize(ListOfWords[Random.Range(0, ListOfWords.Count)], structreController);
           spawnedEnemies.Add(enemy.GetComponent<Enemy>());
           enemy.GetComponent<Enemy>().OnDeath += OnOnDeath;

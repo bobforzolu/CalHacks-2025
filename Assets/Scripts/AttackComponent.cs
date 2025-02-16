@@ -7,11 +7,18 @@ public class AttackComponent : MonoBehaviour
     public CustomAnimationEvent animationEvent;
     
     public IHealth enemyHealth;
-    public int damage;    
+    public int damage;
+    public event Action<Vector3> OnHit;
     
     private void Start()
     {
         animationEvent.OnAniamtion += ApplyAttack;
+    }
+
+    private void OnDisable()
+    {
+        animationEvent.OnAniamtion -= ApplyAttack;
+
     }
 
     private void ApplyAttack(AniamtionEventType DammageTrigger)
@@ -34,6 +41,7 @@ public class AttackComponent : MonoBehaviour
                 Debug.Log("Hit");
                 enemyHealth = health;
                 enemyHealth.TakeDamege();
+                OnHit?.Invoke(other.transform.position);
             }
         }
     }
