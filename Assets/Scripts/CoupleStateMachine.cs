@@ -14,6 +14,8 @@ public class CoupleStateMachine : MonoBehaviour
         public ActivePlayer PlayerId;
         public bool InControl = false;
 
+        public int attackMovement;
+
 
 
         public void Initalize()
@@ -107,6 +109,8 @@ public class CoupleStateMachine : MonoBehaviour
         idleStae = new IdleStae(this, animationController);
         jumpState = new JumpState(this, animationController);
         movementState = new MovementState(this, animationController);
+        engage = new EngageState(this, animationController);
+        disengage = new DisEngage(this, animationController);
         
         
         initalizeState(idleStae);

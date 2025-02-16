@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -4273483296279188405, guid: a672e146b26a9494bab6321cc8d1b7cd, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -176,7 +176,7 @@ Animator:
   m_GameObject: {fileID: 3603899462491529822}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c61caead8d2bc044c872154a7d456c0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5002adc35afb2284bb3ce06a0017477e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,9 +211,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3628366029264903427}
   - component: {fileID: 5604597484127443096}
+  - component: {fileID: 474761242334356037}
   m_Layer: 6
   m_Name: hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,3 +255,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &474761242334356037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090598142732326043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6639f79881d64104ebff33085bac8a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationEvent: {fileID: 3149384187921494966}
+  damage: 1

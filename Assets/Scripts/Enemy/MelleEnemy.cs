@@ -20,11 +20,14 @@ using UnityEngine;
                 attacksequatnce.Append(transform.DOMoveX(transform.position.x + 0.5f, 1).OnComplete(() =>
                 {
                     boxCollider.enabled = true;
+                    isAttacking = true;
+
                 }));
             else if(direction == Vector2.right)
                 attacksequatnce.Append(transform.DOMoveX( transform.position.x - 0.5f, 1).OnComplete(() =>
                 {
                     boxCollider.enabled = true;
+                    isAttacking = true;
                 }));
 
             
@@ -36,6 +39,9 @@ using UnityEngine;
             attacksequatnce.OnComplete(() =>
             {
                 boxCollider.enabled = false;
+                isAttacking = false;
+                idleTime = idleDuration + Time.time;
+
                 if (direction == Vector2.left)
                     transform.DOMoveX(transform.position.x + 1.5f, 0.5f).OnComplete(() =>
                     {

@@ -1,18 +1,23 @@
 using System;
+using System.Components;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour,IHealth
 {
   public float AttackRange;
+  public int Health;
   public float AttackCoolDown;
   public float MovementSpeed;
   public EnemyState enemyState;
   public LayerMask layerMask;
-  
+  public TextMeshPro textUi;
+  public event Action<Enemy> OnDeath;
   [Header("Attack")]
   public float TimeBetweenAttacks;
   public float attacktime;
+  public bool isAttacking;
   
   [Header("Idle settings")]
   public float idleDuration;
@@ -26,16 +31,29 @@ public class Enemy : MonoBehaviour
 
   [Header("Attack")] 
   public Sequence attacksequatnce;
-  
-private void Awake()
+
+  public bool testing;
+
+  private void Awake()
+  {
+    if (testing)
+    {
+      textUi.text = "dasf";
+      SetMovement();  
+
+
+    }
+      
+  }
+
+  public void Iniatalize(string text, StructreController tartget)
 {
-  Spawn();
+  textUi.text = text;
+  this.tartget = tartget; 
+
 }
 
-public virtual void Spawn()
-  {
-    SetMovement();
-  }
+
   
   public virtual void Attack(Vector2 direction)
   {
@@ -49,7 +67,7 @@ public virtual void Spawn()
   public void SetMovement()
   {
     enemyState = EnemyState.move;
-    moveTweener = transform.DOMoveX(tartget.transform.position.x, 1).SetSpeedBased().SetEase(Ease.Linear);
+    moveTweener = transform.DOMoveX(tartget.transform.position.x, 1.5f).SetSpeedBased().SetEase(Ease.Linear);
 
   }
 
@@ -66,24 +84,40 @@ public virtual void Spawn()
   
   }
 
+  public void IsHit(Vector2 direction)
+  {
+    idleTime = idleDuration + Time.time;
+    enemyState = EnemyState.ishit;
+    attacksequatnce?.Kill();
+    GetComponent<Rigidbody>().AddForce((direction) , ForceMode.Impulse);
+
+  }
+
 
 
  
   private void Update()
   {
-    
-    
+    transform.position = new Vector3(transform.position.x, -0.25f, transform.position.z);
+
     switch (enemyState)
     {
       case EnemyState.Idle:
-        CheckLeftRightRaycast();
+        if( Time.time >idleTime )
+          SetMovement();
         break;
       case EnemyState.move:
         CheckLeftRightRaycast();
+        if(Vector3.Distance(transform.position, tartget.transform.position) <5f)
+          moveTweener?.Kill();
+          
+
         break;
       case EnemyState.attack:
         break;
       case EnemyState.ishit:
+        if( Time.time >idleTime )
+          SetMovement();
         break;
       default:
         throw new ArgumentOutOfRangeException();
@@ -113,6 +147,22 @@ public virtual void Spawn()
   bool PerformRaycast(Vector3 origin, Vector3 direction, float distance, out RaycastHit hit)
   {
     return Physics.Raycast(origin, direction, out hit, distance, layerMask);
+  }
+
+  public void TakeDamege()
+  {
+    Health -= 1;
+
+    if (Health <= 0)
+    {
+      OnDeath?.Invoke(this);
+      Destroy(gameObject);
+    }
+     
+  }
+
+  public void HealHealth()
+  {
   }
 }
 

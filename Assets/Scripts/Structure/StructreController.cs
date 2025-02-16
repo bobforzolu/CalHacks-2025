@@ -14,6 +14,8 @@ public class StructreController : MonoBehaviour, IHealth
     public bool isRepairing;
     public bool repairFinished;
     public event Action<StructreController> OnStructureBuilt;
+    public event Action OnrepairStarted;
+
     private Tween repairTween; // Reference to the DOTween animation
     
     public event Action<float> OnHealthChanged;
@@ -25,16 +27,7 @@ public class StructreController : MonoBehaviour, IHealth
         currentHeal = maxHeal;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && !isRepairing) 
-        {
-            isRepairing = true;
-            StartRepair();
-
-        }
-            
-    }
+ 
 
     public void StartRepair()
     {
@@ -50,7 +43,12 @@ public class StructreController : MonoBehaviour, IHealth
                 OnStructureBuilt?.Invoke(this);
 
                 Debug.Log("Repair Finished");
-            });    }
+            }).OnStart(() =>
+            {
+                OnrepairStarted?.Invoke();
+            });    
+        
+    }
 
     public void PuaseRepair()
     {
