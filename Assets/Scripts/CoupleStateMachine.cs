@@ -29,8 +29,8 @@ public class CoupleStateMachine : MonoBehaviour
         {
             animationEvent.OnAniamtion += AnimationEventOnOnAniamtion;
 
-            playerController.OnActivePlayerChanged += OnOnActivePlayerChanged;
-            playerController.inputController.Move += InputControllerOnMove;
+            GetComponentInParent<PlayerController>().OnActivePlayerChanged += OnOnActivePlayerChanged;
+            GetComponentInParent<PlayerController>().inputController.Move += InputControllerOnMove;
         }
 
         public void Attack()
@@ -58,13 +58,22 @@ public class CoupleStateMachine : MonoBehaviour
           movementComponent.CheckIfShouldFlip(arg0.x);
         }
 
-        private void Start()
+        public void SwithControl(ActivePlayer activePlayer)
         {
-            
+            if (PlayerId == activePlayer)
+            {
+                SwithState(engage);
+            }
+            else
+            {
+                SwithState(disengage);
+            }
+                
         }
 
         private void OnOnActivePlayerChanged(ActivePlayer activePlayer)
         {
+            SwithControl(activePlayer);
             if (activePlayer == PlayerId)
             {
                 InControl = true;
@@ -85,6 +94,8 @@ public class CoupleStateMachine : MonoBehaviour
     public PlayerState CurrentPlayerState;
     public AttackState attackstate;
     public SwitchAttack switchattack;
+    public DisEngage disengage;
+    public EngageState engage;
     public IdleStae idleStae;
     public JumpState jumpState;
     public MovementState movementState;

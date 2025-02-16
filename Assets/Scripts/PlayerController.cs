@@ -1,6 +1,7 @@
 using System;
 using System.AnimationSystem;
 using System.Components;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public MovementComponent movementComponent;
     
     private Vector2 movement;
+
+
+    public float switchSpeed;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -104,25 +108,28 @@ public class PlayerController : MonoBehaviour
         {
             
             
-            wife.transform.position = player1.position;
+          
+          
+            wife.transform.DOMoveX(player1.position.x, switchSpeed).SetEase(Ease.OutFlash);
+
             wife.transform.parent = player1;
+            
             coupleStateMachine = wife.GetComponent<CoupleStateMachine>();
 
-            husband.transform.position = player2.position;
+            husband.transform.DOMoveX(player2.position.x, switchSpeed).SetEase(Ease.OutFlash);
+
             husband.transform.parent = player2;
-            transform.position = wife.transform.position;
 
         }
         else
         {
-            wife.transform.position = player2.position;
+            wife.transform.DOMoveX(player2.position.x, switchSpeed).SetEase(Ease.OutFlash);
             wife.transform.parent = player2;
 
-            husband.transform.position = player1.position;
+            husband.transform.DOMoveX(player1.position.x, switchSpeed).SetEase(Ease.OutFlash);
             husband.transform.parent = player1;
             coupleStateMachine = husband.GetComponent<CoupleStateMachine>();
 
-            transform.position = husband.transform.position;
 
         }
         coupleStateMachine.ControlEnabled(true);
