@@ -112,13 +112,4 @@ public class StructreController : MonoBehaviour, IHealth
     }
 }
 
-public class StructureEventsArgs : EventArgs
-{ 
-    public int maxHeal ;
-    public int currentHeal;
-    public int maxRepair;
-    public int repairValue;
-    
-    public float repairDuration;
-   
-}
+
