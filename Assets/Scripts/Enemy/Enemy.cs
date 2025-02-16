@@ -53,6 +53,14 @@ public class Enemy : MonoBehaviour,IHealth
 
 }
 
+  public void Deflect(int force)
+  {
+    idleTime = idleDuration + Time.time;
+    enemyState = EnemyState.ishit;
+    attacksequatnce?.Kill();
+    moveTweener = transform.DOMove(transform.position + (Vector3.right * force), 0.5f).SetEase(Ease.OutFlash);
+  }
+
 
   
   public virtual void Attack(Vector2 direction)
@@ -84,14 +92,7 @@ public class Enemy : MonoBehaviour,IHealth
   
   }
 
-  public void IsHit(Vector2 direction)
-  {
-    idleTime = idleDuration + Time.time;
-    enemyState = EnemyState.ishit;
-    attacksequatnce?.Kill();
-    GetComponent<Rigidbody>().AddForce((direction) , ForceMode.Impulse);
 
-  }
 
 
 

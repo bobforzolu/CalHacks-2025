@@ -14,9 +14,9 @@ public class HusbandDefender : MonoBehaviour
                 if (other.gameObject.TryGetComponent(out Enemy enemy))
                 {
                     if(enemy.isAttacking)
-                        enemy.IsHit(new Vector2(movementComponent.facingDirections, 1) * 3);
+                        enemy.Deflect(5);
                     else
-                        enemy.IsHit((Vector2.right *  movementComponent.facingDirections) * 2);
+                        enemy.Deflect(2);
 
                 }
                 
