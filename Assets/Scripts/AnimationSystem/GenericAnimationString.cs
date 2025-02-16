@@ -22,7 +22,7 @@ namespace System.AnimationSystem
             base.UpdateString();
         }
 
-        public override void AnimationFinish(AniamtionEventType animationName)
+        public override void AnimationFinish(AnimationEventType animationName)
         {
             base.AnimationFinish(animationName);
         }

@@ -12,7 +12,7 @@ namespace System.AnimationSystem
         
         public void Initialize()
         {
-            copyanimationDirectory = ScriptableObject.CreateInstance<AnimationDirectory>();
+            copyanimationDirectory = Instantiate(animationDirectory);
             copyanimationDirectory.Animations = new List<AnimationString>(animationDirectory.Animations);
             copyanimationDirectory.Initialize(animator);
 

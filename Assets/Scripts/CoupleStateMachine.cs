@@ -59,7 +59,7 @@ public class CoupleStateMachine : MonoBehaviour
         }
 
     
-        private void AnimationEventOnOnAniamtion(AniamtionEventType obj)
+        private void AnimationEventOnOnAniamtion(AnimationEventType obj)
         {
            CurrentPlayerState.HeroEventStates(obj);
         }

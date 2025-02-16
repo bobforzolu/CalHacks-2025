@@ -46,7 +46,7 @@ namespace System.AnimationSystem
         /// apply animation events
         /// </summary>
         /// <param name="animationName"></param>
-        public virtual void AnimationFinish(AniamtionEventType animationName)
+        public virtual void AnimationFinish(AnimationEventType animationName)
         {
             
         }

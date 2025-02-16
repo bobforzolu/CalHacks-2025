@@ -31,11 +31,11 @@ namespace Player1
             base.Exit();
         }
 
-        public override void HeroEventStates(AniamtionEventType eventType)
+        public override void HeroEventStates(AnimationEventType eventType)
         {
             base.HeroEventStates(eventType);
             
-            if(eventType == AniamtionEventType.AnimationFinishTrigger)
+            if(eventType == AnimationEventType.AnimationFinishTrigger)
                 controller.SwithState(controller.idleStae);
         }
     }

@@ -4,22 +4,22 @@ using UnityEngine;
 
     public class CustomAnimationEvent : MonoBehaviour
     {
-        public event Action<AniamtionEventType> OnAniamtion;
+        public event Action<AnimationEventType> OnAniamtion;
         public void DammageTriggerEvent()
         {
-            OnAniamtion?.Invoke(AniamtionEventType.DamageTrigger);
+            OnAniamtion?.Invoke(AnimationEventType.DamageTrigger);
         }
         public void AnimationFinishTriggerEvent()
         {
-            OnAniamtion?.Invoke(AniamtionEventType.AnimationFinishTrigger);
+            OnAniamtion?.Invoke(AnimationEventType.AnimationFinishTrigger);
         }
         public void CancelActionTriggerEvent()
         {
-            OnAniamtion?.Invoke(AniamtionEventType.CancelActionsTrigger);
+            OnAniamtion?.Invoke(AnimationEventType.CancelActionsTrigger);
         }
     }
 
-    public enum AniamtionEventType
+    public enum AnimationEventType
     {
         DamageTrigger,
         VfxTrigger,

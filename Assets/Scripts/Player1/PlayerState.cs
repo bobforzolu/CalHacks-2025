@@ -28,7 +28,7 @@ namespace Player1
         {
         }
 
-        public virtual void HeroEventStates(AniamtionEventType eventType)
+        public virtual void HeroEventStates(AnimationEventType eventType)
         {
         
         }

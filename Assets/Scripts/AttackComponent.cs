@@ -21,9 +21,9 @@ public class AttackComponent : MonoBehaviour
 
     }
 
-    private void ApplyAttack(AniamtionEventType DammageTrigger)
+    private void ApplyAttack(AnimationEventType DammageTrigger)
     {
-        if( DammageTrigger != AniamtionEventType.DamageTrigger) return;
+        if( DammageTrigger != AnimationEventType.DamageTrigger) return;
         
         if(enemyHealth == null) return;
         
