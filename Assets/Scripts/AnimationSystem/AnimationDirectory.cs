@@ -7,6 +7,7 @@ namespace System.AnimationSystem
     public class AnimationDirectory: ScriptableObject
     {
         public List<AnimationString> Animations;
+        [NonSerialized]
         public Dictionary<String, AnimationString> AnimationDictionary ;
         public RuntimeAnimatorController animatorController;
         private AnimationString currentString;
@@ -14,10 +15,8 @@ namespace System.AnimationSystem
 
         public void Initialize(Animator animator)
         {
-            AnimationDictionary = new Dictionary<string, AnimationString>();
+            AnimationDictionary = new Dictionary<string, AnimationString>(); // Ensure it's fresh
             this.animator = animator;
-            
-            
             SetupAnimationDictionary();
             
         }

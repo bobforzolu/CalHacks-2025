@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f94c70deffb543c7b877345ace6d5ca8, type: 3}
-  m_Name: Controller
+  m_Name: wifecont
   m_EditorClassIdentifier: 
   Animations:
-  - {fileID: 11400000, guid: 096a8a31e7bcced4eaa8585995cc995c, type: 2}
-  - {fileID: 11400000, guid: aff8ccc6511b37148b5eca1907827411, type: 2}
+  - {fileID: 11400000, guid: 6cb7fb0e4f8ea9247ae394e1cd2f4a1f, type: 2}
+  - {fileID: 11400000, guid: 7fbe11221398aa9488c808f83a78e3ee, type: 2}
   animatorController: {fileID: 0}

@@ -21,15 +21,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: 4800000, guid: 2a230514c860643f69b6a4d1871d3825, type: 3}
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - DR_OUTLINE_ON
-  - DR_RIM_ON
-  - DR_VERTEX_COLORS_ON
-  - _DETAILMAPBLENDINGMODE_MULTIPLY
-  - _TEXTUREBLENDINGMODE_MULTIPLY
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -149,6 +144,7 @@ Material:
     - _LightmapDirectionPitch: 0
     - _LightmapDirectionYaw: 0
     - _Metallic: 0
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0.37
     - _OutlineEnabled: 1
@@ -171,13 +167,14 @@ Material:
     - _Surface: 0
     - _TextureBlendingMode: 0
     - _TextureImpact: 0
+    - _UVSec: 0
     - _UnityShadowOcclusion: 0
     - _VertexColorsEnabled: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+    - _Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

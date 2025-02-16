@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace System.AnimationSystem
 {
@@ -11,8 +12,10 @@ namespace System.AnimationSystem
         
         public void Initialize()
         {
-            copyanimationDirectory = ScriptableObject.Instantiate(animationDirectory);
+            copyanimationDirectory = ScriptableObject.CreateInstance<AnimationDirectory>();
+            copyanimationDirectory.Animations = new List<AnimationString>(animationDirectory.Animations);
             copyanimationDirectory.Initialize(animator);
+
 
         }
 

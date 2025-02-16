@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3917213755736118373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4640692010767895034}
+  - component: {fileID: 1024035196737730762}
+  m_Layer: 0
+  m_Name: WaveController
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4640692010767895034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917213755736118373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.36, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024035196737730762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917213755736118373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2243f4417c430db4abaf24c890a26c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - name: wave1
+    enemycount: 4
+    maxEnemies: 2
+    enemys:
+    - {fileID: 8028064219339898544, guid: 1000ea981101886438f70b7aa75f8fbc, type: 3}
+    - {fileID: 7137228414957363625, guid: 2b7efb9f9b4a34848ac8bfb9e40d2225, type: 3}
+  - name: wave2
+    enemycount: 12
+    maxEnemies: 3
+    enemys:
+    - {fileID: 8028064219339898544, guid: 1000ea981101886438f70b7aa75f8fbc, type: 3}
+    - {fileID: 7137228414957363625, guid: 2b7efb9f9b4a34848ac8bfb9e40d2225, type: 3}
+  - name: wave3
+    enemycount: 12
+    maxEnemies: 3
+    enemys:
+    - {fileID: 8028064219339898544, guid: 1000ea981101886438f70b7aa75f8fbc, type: 3}
+    - {fileID: 7137228414957363625, guid: 2b7efb9f9b4a34848ac8bfb9e40d2225, type: 3}
+  - name: wav4
+    enemycount: 18
+    maxEnemies: 3
+    enemys:
+    - {fileID: 8028064219339898544, guid: 1000ea981101886438f70b7aa75f8fbc, type: 3}
+    - {fileID: 7137228414957363625, guid: 2b7efb9f9b4a34848ac8bfb9e40d2225, type: 3}
+  spawnedEnemies: []
+  ListOfWords: []
+  filePath: Assets/Asset/text/fonts.txt
+  structreController: {fileID: 0}

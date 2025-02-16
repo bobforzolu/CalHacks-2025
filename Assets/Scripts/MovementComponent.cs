@@ -4,7 +4,7 @@ namespace System.Components
 {
     public class MovementComponent: MonoBehaviour
     {
-        public Rigidbody rigidbody { get; private set; }
+        public Rigidbody rigidbody; 
         private Vector3 workplace;
         public int facingDirections;
         public Vector3 CurrentVelocity { get; private set; }

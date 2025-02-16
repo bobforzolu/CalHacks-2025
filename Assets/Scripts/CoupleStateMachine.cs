@@ -1,14 +1,11 @@
-using System;
 using System.AnimationSystem;
 using System.Components;
 using Player1;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoupleStateMachine : MonoBehaviour
 {
         public AnimationController animationController;
-        public PlayerController playerController;
         public MovementComponent movementComponent;
         public CustomAnimationEvent animationEvent;
         public ActivePlayer PlayerId;
